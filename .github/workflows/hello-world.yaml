@@ -24,12 +24,12 @@ jobs:
   Build:
   - name: Download a single artifact
   uses: actions/download-artifact@v2
+  with:
+    name: code
+    path: .
+    needs: Clone-down
+    uses: actions/upload-artifact@v2
     with:
       name: code
       path: .
-    needs: Clone-down
-    uses: actions/upload-artifact@v2
-      with:
-        name: code
-        path: .
 
