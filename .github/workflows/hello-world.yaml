@@ -59,15 +59,16 @@ jobs:
   
   Component-test: 
     needs: Docker-image
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-    - name: run-component-test
-      run: bash ci/component-test.sh
     - name: Download a single artifact
       uses: actions/download-artifact@v2
       with:
         name: code
         path: .
+    - name: run-component-test
+      run: bash ci/component-test.sh
+  
 
       
 
