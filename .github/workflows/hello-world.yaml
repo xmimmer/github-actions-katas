@@ -9,15 +9,15 @@ jobs:
         uses: actions/checkout@v2
       - run: chmod +x ci/build-app.sh && ci/build-app.sh
         uses: actions/upload-artifact@v2
-          with:
-            name: code
-            path: .
+        with:
+          name: code
+          path: .
   Test:
   - name: Download a single artifact
     uses: actions/download-artifact@v2
-      with:
-        name: code
-        path: .
+    with:
+      name: code
+      path: .
     needs: Clone-down
     run: ci/unit-test-app.sh
 
