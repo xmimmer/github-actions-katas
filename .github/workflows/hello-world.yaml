@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: my-step
         uses: actions/checkout@v2
-      - run: chmod +x ci/build-app.sh && ci/build-app.sh
+      - run: chmod +x ci/build-app.sh
       - uses: actions/upload-artifact@v2
         with:
           name: code
@@ -34,6 +34,8 @@ jobs:
       with:
         name: code
         path: .
+    - name: Build
+      run: ci/build-app.sh
     - uses: actions/upload-artifact@v2
       with:
         name: code
