@@ -1,4 +1,7 @@
 name: Java-CI
+env:
+  docker_username: ${{ secrets.DOCKER_USERNAME }}
+  docker_password: ${{ secrets.DOCKER_PASSWORD }}
 on: push
 jobs:
   Clone-down:
@@ -43,9 +46,6 @@ jobs:
   Docker-image: 
     needs: [Test, Build]
     runs-on: ubuntu-latest
-    env:
-      docker_username: ${{ secrets.DOCKER_USERNAME }}
-      docker_password: ${{ secrets.DOCKER_PASSWORD }}
     steps:
     - name: Download a single artifact
       uses: actions/download-artifact@v2
@@ -63,6 +63,11 @@ jobs:
     steps:
     - name: run-component-test
       run: bash ci/component-test.sh
+    - name: Download a single artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: code
+        path: .
 
       
 
