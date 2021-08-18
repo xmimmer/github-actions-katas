@@ -62,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: run-component-test
-    run: bash ci/component-test.sh
+      run: bash ci/component-test.sh
 
       
 
