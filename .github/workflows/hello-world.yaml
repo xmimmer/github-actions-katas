@@ -20,7 +20,7 @@ jobs:
       with:
         name: code
         path: .
-      - run: ci/unit-test-app.sh
+    - run: ci/unit-test-app.sh
 
   Build:
     needs: Clone-down
