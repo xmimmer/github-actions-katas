@@ -24,16 +24,15 @@ jobs:
 
   Build:
     needs: Clone-down
-      runs-on: ubuntu-latest
-      container: gradle:6-jdk11
-      steps:
-        - name: Download a single artifact
-        uses: actions/download-artifact@v2
-          with:
+    runs-on: ubuntu-latest
+    container: gradle:6-jdk11
+    steps:
+      - name: Download a single artifact
+      uses: actions/download-artifact@v2
+        with:          name: code
+        path: .
+      - uses: actions/upload-artifact@v2
+        with:
           name: code
           path: .
-        - uses: actions/upload-artifact@v2
-          with:
-            name: code
-            path: .
 
